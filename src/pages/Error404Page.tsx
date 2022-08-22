@@ -1,5 +1,7 @@
+import PageWrapper from "@components/pageWrapper/PageWrapper";
+
 type Props = { something?: boolean };
 const Error404Page = (props: Props) => {
-  return <div>Error404Page</div>;
+  return <PageWrapper>Error404Page</PageWrapper>;
 };
 export default Error404Page;

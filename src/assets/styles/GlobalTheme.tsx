@@ -184,6 +184,14 @@ const GlobalTheme = () => {
             background-color: var(--shark);
             width: 100vw;
             height: 100vh;
+            font-family: "Nunito", sans-serif;
+            color: #ecf0f1;
+          }
+          #root {
+            display: grid;
+            place-items: center;
+            width: 100%;
+            height: 100%;
           }
         `}
       />

@@ -1,5 +1,7 @@
+import PageWrapper from "@components/pageWrapper/PageWrapper";
+
 type Props = { something?: boolean };
 const GamePage = (props: Props) => {
-  return <div>GamePage</div>;
+  return <PageWrapper>GamePage</PageWrapper>;
 };
 export default GamePage;
