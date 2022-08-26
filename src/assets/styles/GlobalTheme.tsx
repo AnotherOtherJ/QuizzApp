@@ -1,176 +1,54 @@
 import { css, Global } from "@emotion/react";
 
+export const colors = {
+  background: "#24252a",
+  background_dark: "#1b1c1f",
+  primary: "#3498DB",
+};
+
 const GlobalTheme = () => {
   return (
     <>
       <Global
         styles={css`
           *,
-          *::after,
-          *::before {
+          *::before,
+          *::after {
             box-sizing: border-box;
-            margin: 0;
-            padding: 0;
           }
-          html {
-            line-height: 1.15;
-            -webkit-text-size-adjust: 100%;
-            text-size-adjust: 100%;
+          * {
+            margin: 0;
+          }
+          html,
+          body {
+            height: 100%;
           }
           body {
-            margin: 0;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
           }
-          main {
+          img,
+          picture,
+          video,
+          canvas,
+          svg {
             display: block;
-          }
-          h1 {
-            font-size: 2em;
-            margin: 0.67em 0;
-          }
-          hr {
-            box-sizing: content-box;
-            height: 0;
-            overflow: visible;
-          }
-          pre {
-            font-family: monospace, monospace;
-            font-size: 1em;
-          }
-          a {
-            text-decoration: none;
-            color: inherit;
-            background-color: transparent;
-          }
-          abbr[title] {
-            border-bottom: none;
-            text-decoration: underline;
-            text-decoration: underline dotted;
-          }
-          b,
-          strong {
-            font-weight: bolder;
-          }
-          code,
-          kbd,
-          samp {
-            font-family: monospace, monospace;
-            font-size: 1em;
-          }
-          small {
-            font-size: 80%;
-          }
-          sub,
-          sup {
-            font-size: 75%;
-            line-height: 0;
-            position: relative;
-            vertical-align: baseline;
-          }
-          sub {
-            bottom: -0.25em;
-          }
-          sup {
-            top: -0.5em;
-          }
-          img {
-            border-style: none;
-          }
-          button,
-          input,
-          optgroup,
-          select,
-          textarea {
-            font-family: inherit;
-            font-size: 100%;
-            line-height: 1.15;
-            margin: 0;
-          }
-          button,
-          input {
-            overflow: visible;
-          }
-          button,
-          select {
-            text-transform: none;
-          }
-          button,
-          [type="button"],
-          [type="reset"],
-          [type="submit"] {
-            -webkit-appearance: button;
-          }
-          button::-moz-focus-inner,
-          [type="button"]::-moz-focus-inner,
-          [type="reset"]::-moz-focus-inner,
-          [type="submit"]::-moz-focus-inner {
-            border-style: none;
-            padding: 0;
-          }
-          button:-moz-focusring,
-          [type="button"]:-moz-focusring,
-          [type="reset"]:-moz-focusring,
-          [type="submit"]:-moz-focusring {
-            outline: 1px dotted ButtonText;
-          }
-
-          fieldset {
-            padding: 0.35em 0.75em 0.625em;
-          }
-
-          legend {
-            box-sizing: border-box;
-            color: inherit;
-            display: table;
             max-width: 100%;
-            padding: 0; /* 3 */
-            white-space: normal;
           }
-
-          progress {
-            vertical-align: baseline;
-          }
-
-          textarea {
-            overflow: auto;
-          }
-
-          [type="checkbox"],
-          [type="radio"] {
-            box-sizing: border-box;
-            padding: 0;
-          }
-
-          [type="number"]::-webkit-inner-spin-button,
-          [type="number"]::-webkit-outer-spin-button {
-            height: auto;
-          }
-
-          [type="search"] {
-            -webkit-appearance: textfield;
-            outline-offset: -2px;
-          }
-          [type="search"]::-webkit-search-decoration {
-            -webkit-appearance: none;
-          }
-
-          ::-webkit-file-upload-button {
-            -webkit-appearance: button;
+          input,
+          button,
+          textarea,
+          select {
             font: inherit;
           }
-
-          details {
-            display: block;
-          }
-
-          summary {
-            display: list-item;
-          }
-
-          template {
-            display: none;
-          }
-          [hidden] {
-            display: none;
+          p,
+          h1,
+          h2,
+          h3,
+          h4,
+          h5,
+          h6 {
+            overflow-wrap: break-word;
           }
         `}
       />
@@ -182,8 +60,8 @@ const GlobalTheme = () => {
           }
           body {
             background-color: var(--shark);
-            width: 100vw;
-            height: 100vh;
+            width: 100%;
+            height: 100%;
             font-family: "Nunito", sans-serif;
             color: #ecf0f1;
           }
@@ -192,6 +70,11 @@ const GlobalTheme = () => {
             place-items: center;
             width: 100%;
             height: 100%;
+            isolation: isolate;
+          }
+          a {
+            text-decoration: none;
+            color: inherit;
           }
         `}
       />
