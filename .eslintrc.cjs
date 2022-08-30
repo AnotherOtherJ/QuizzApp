@@ -20,11 +20,13 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: ["react", "@typescript-eslint", "import", "simple-import-sort"],
+  plugins: ["react", "@typescript-eslint", "import", "simple-import-sort", "@emotion"],
   rules: {
     "import/no-unresolved": "error",
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
+    "@emotion/pkg-renaming": "error",
+    "@emotion/import-from-emotion": "error",
   },
   settings: {
     "import/parsers": {
