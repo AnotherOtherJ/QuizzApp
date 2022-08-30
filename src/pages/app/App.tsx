@@ -1,7 +1,7 @@
+import Nav from "@components/nav/Nav";
 import { lazy, Suspense } from "react";
+import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
-
-import Nav from "@/components/nav/Nav";
 
 import WelcomePage from "../WelcomePage";
 
@@ -11,16 +11,20 @@ const SettingsPage = lazy(() => import("../SettingsPage"));
 const AboutPage = lazy(() => import("../AboutPage"));
 
 const App = () => {
+  const [api, setApi] = useState<{ category: number; questions: number }>({
+    category: 27,
+    questions: 5,
+  });
   return (
     <>
       <Nav />
       <Routes>
-        <Route path="/" element={<WelcomePage />} />
+        <Route path="/" element={<WelcomePage setApi={setApi} api={api} />} />
         <Route
           path="/play"
           element={
-            <Suspense>
-              <GamePage />
+            <Suspense fallback={<div>loading</div>}>
+              <GamePage api={api} />
             </Suspense>
           }
         />

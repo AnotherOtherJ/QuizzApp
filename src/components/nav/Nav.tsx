@@ -3,13 +3,12 @@ import { Link } from "react-router-dom";
 
 import StyledNav from "./Nav.style";
 
-type Props = { something?: string };
-const Nav = (props: Props) => {
+const Nav = () => {
   return (
     <StyledNav>
-      <img src={navlogo} />
+      <img src={navlogo} alt="logo" />
       <div>
-        <Link to="/play">Play</Link>
+        <Link to="/">Play</Link>
       </div>
       <div>
         <Link to="/about">About</Link>
