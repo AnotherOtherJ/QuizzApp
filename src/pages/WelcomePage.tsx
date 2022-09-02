@@ -22,6 +22,12 @@ const Button = styled.div`
   }
 `;
 const Input = styled.input`
+  ::-moz-range-track {
+    display: none;
+  }
+  ::-moz-range-thumb {
+    display: none;
+  }
   -webkit-appearance: none;
   margin-right: 15px;
   width: 300px;
@@ -42,6 +48,7 @@ const Input = styled.input`
     top: 0;
     left: 0;
   }
+
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
     height: 20px;
