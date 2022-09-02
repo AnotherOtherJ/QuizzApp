@@ -54,16 +54,14 @@ const GlobalTheme = () => {
       />
       <Global
         styles={css`
-          :root {
-            --shark: #24252a;
-            --ebony: #22313f;
-          }
           body {
-            background-color: var(--shark);
+            background-color: #212121;
             width: 100%;
             height: 100%;
             font-family: "Nunito", sans-serif;
             color: #ecf0f1;
+            font-size: 17px;
+            letter-spacing: 0.5px;
           }
           #root {
             display: grid;

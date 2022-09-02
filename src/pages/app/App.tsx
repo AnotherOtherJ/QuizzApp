@@ -7,7 +7,6 @@ import WelcomePage from "../WelcomePage";
 
 const Error404Page = lazy(() => import("../Error404Page"));
 const GamePage = lazy(() => import("../GamePage"));
-const SettingsPage = lazy(() => import("../SettingsPage"));
 const AboutPage = lazy(() => import("../AboutPage"));
 
 const App = () => {
@@ -33,14 +32,6 @@ const App = () => {
           element={
             <Suspense>
               <AboutPage />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/settings"
-          element={
-            <Suspense>
-              <SettingsPage />
             </Suspense>
           }
         />

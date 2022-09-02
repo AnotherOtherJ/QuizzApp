@@ -13,9 +13,7 @@ const Nav = () => {
       <div>
         <Link to="/about">About</Link>
       </div>
-      <div>
-        <Link to="/settings">Settings</Link>
-      </div>
+      <div>Switch Theme</div>
     </StyledNav>
   );
 };
