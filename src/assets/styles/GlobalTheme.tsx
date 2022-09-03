@@ -1,12 +1,28 @@
-import { css, Global } from "@emotion/react";
+import { css, Global, useTheme } from "@emotion/react";
 
 export const colors = {
-  background: "#24252a",
-  background_dark: "#1b1c1f",
-  primary: "#3498DB",
+  dark: {
+    primary: "#4527a0",
+    secondary: "#7953d2",
+    background: "#212121",
+    inputBackground: "rgba(69, 39, 160, 0.38)",
+    inputBoxShadow: "rgba(69, 39, 160, 0.2)",
+    inputBoxShadowActive: "rgba(69, 39, 160, 0.4)",
+    font: "#ecf0f1",
+  },
+  light: {
+    primary: "#DDD",
+    secondary: "#7953d2",
+    background: "#FFF",
+    inputBackground: "rgba(69, 39, 160, 0.38)",
+    inputBoxShadow: "rgba(69, 39, 160, 0.2)",
+    inputBoxShadowActive: "rgba(69, 39, 160, 0.4)",
+    font: "#000",
+  },
 };
 
 const GlobalTheme = () => {
+  const theme = useTheme();
   return (
     <>
       <Global
@@ -55,11 +71,11 @@ const GlobalTheme = () => {
       <Global
         styles={css`
           body {
-            background-color: #212121;
+            background-color: ${theme.background};
             width: 100%;
             height: 100%;
             font-family: "Nunito", sans-serif;
-            color: #ecf0f1;
+            color: ${theme.font};
             font-size: 17px;
             letter-spacing: 0.5px;
           }

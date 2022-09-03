@@ -1,15 +1,12 @@
 import styled from "@emotion/styled";
 import { motion } from "framer-motion";
 
-const PRIMARY_COLOR = "#4527a0";
-const SECONDARY_COLOR = "#7953d2";
-
 export const GridLabel = styled(motion.label)`
   input {
     display: none;
   }
   input:checked + div {
-    background-color: ${SECONDARY_COLOR};
+    background-color: ${({ theme: { secondary } }) => secondary};
   }
 `;
 
@@ -19,13 +16,13 @@ export const GridElement = styled(motion.div)`
   align-items: center;
   padding: 5px;
   border-radius: 5px;
-  background-color: ${PRIMARY_COLOR};
+  background-color: ${({ theme: { primary } }) => primary};
   transition: background-color ease-out 100ms;
   &:hover {
-    background-color: ${SECONDARY_COLOR};
+    background-color: ${({ theme: { secondary } }) => secondary};
   }
   &:active {
-    background-color: ${PRIMARY_COLOR};
+    background-color: ${({ theme: { primary } }) => primary};
   }
 `;
 
