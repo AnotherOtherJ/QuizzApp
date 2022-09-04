@@ -1,19 +1,18 @@
 import navlogo from "@assets/images/navlogo.webp";
-import { Link } from "react-router-dom";
 
-import StyledNav from "./Nav.style";
+import StyledNav, { StyledLink } from "./Nav.style";
 
-const Nav = () => {
+type Props = {
+  darkModeOnClick: () => void;
+};
+
+const Nav = ({ darkModeOnClick }: Props) => {
   return (
     <StyledNav>
       <img src={navlogo} alt="logo" />
-      <div>
-        <Link to="/">Play</Link>
-      </div>
-      <div>
-        <Link to="/about">About</Link>
-      </div>
-      <div>Switch Theme</div>
+      <StyledLink to="/">Play</StyledLink>
+      <StyledLink to="/about">About</StyledLink>
+      <div onClick={darkModeOnClick}>Switch Theme</div>
     </StyledNav>
   );
 };

@@ -2,9 +2,8 @@ import navlogo from "@assets/images/navlogo.webp";
 import GridCategory from "@components/gridCategory/GridCategory";
 import { GridCategories } from "@components/gridCategory/GridCategory.style";
 import PageWrapper from "@components/pageWrapper/PageWrapper";
-import { Link } from "react-router-dom";
 
-import { Button, Input } from "./WelcomePage.style";
+import { Input, StyledLink } from "./WelcomePage.style";
 import type WelcomePageProps from "./WelcomePage.types";
 
 const WelcomePage = ({ setApi, api }: WelcomePageProps) => {
@@ -40,13 +39,14 @@ const WelcomePage = ({ setApi, api }: WelcomePageProps) => {
         <Input
           type="range"
           min={5}
-          max={15}
+          max={10}
           step={0.1}
           defaultValue={api.questions}
           onInput={(e: React.ChangeEvent<HTMLInputElement>) =>
             handleQuestionsNumberOnInput(+e.target.value, e.target)
           }
         />
+        <br />
         Questions {api.questions}
       </label>
       <GridCategories>
@@ -59,9 +59,7 @@ const WelcomePage = ({ setApi, api }: WelcomePageProps) => {
           />
         ))}
       </GridCategories>
-      <Link to="/play">
-        <Button>Play</Button>
-      </Link>
+      <StyledLink to="/play">Play</StyledLink>
     </PageWrapper>
   );
 };

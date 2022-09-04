@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Link } from "react-router-dom";
 
 const StyledNav = styled.nav`
   display: flex;
@@ -9,20 +10,22 @@ const StyledNav = styled.nav`
   align-items: center;
   padding: 5px;
 
-  div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 5px;
-
-    &:last-child {
-      margin-left: auto;
-    }
-  }
   img {
     height: 30px;
     aspect-ratio: 1;
   }
+  div {
+    margin-left: auto;
+    user-select: none;
+  }
+`;
+
+export const StyledLink = styled(Link)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  font-size: 1.3rem;
 `;
 
 export default StyledNav;

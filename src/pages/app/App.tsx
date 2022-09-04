@@ -1,10 +1,11 @@
 import Nav from "@components/nav/Nav";
 import { ThemeProvider } from "@emotion/react";
-import { lazy, Suspense, useEffect } from "react";
+import { lazy, Suspense } from "react";
 import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 
 import GlobalTheme, { colors } from "@/assets/styles/GlobalTheme";
+import useTheme from "@/hooks/useTheme";
 
 import WelcomePage from "../welcomePage/WelcomePage";
 
@@ -18,18 +19,16 @@ const App = () => {
     questions: 5,
   });
   const [isDark, setIsDark] = useState(window.matchMedia("(prefers-color-scheme: dark)").matches);
-  useEffect(() => {
-    const checkScheme = (e: MediaQueryListEvent) =>
-      e.matches ? setIsDark(true) : setIsDark(false);
-    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", checkScheme);
-    return () =>
-      window.matchMedia("(prefers-color-scheme: dark)").removeEventListener("change", checkScheme);
-  }, []);
+  const darkModeOnClick = () => {
+    setIsDark(something => !something);
+    localStorage.setItem("darkMode", isDark ? "false" : "true");
+  };
+  useTheme(setIsDark);
 
   return (
     <ThemeProvider theme={isDark ? colors.dark : colors.light}>
       <GlobalTheme />
-      <Nav />
+      <Nav darkModeOnClick={darkModeOnClick} />
       <Routes>
         <Route path="/" element={<WelcomePage setApi={setApi} api={api} />} />
         <Route

@@ -1,7 +1,7 @@
 import StyledPageWrapper from "./PageWrapper.style";
 
-type Props = { children?: React.ReactNode; flexStart?: boolean };
-const PageWrapper = ({ children, flexStart }: Props) => {
-  return <StyledPageWrapper flexStart={flexStart ? true : false}>{children}</StyledPageWrapper>;
+type Props = { children?: React.ReactNode };
+const PageWrapper = ({ children }: Props) => {
+  return <StyledPageWrapper>{children}</StyledPageWrapper>;
 };
 export default PageWrapper;

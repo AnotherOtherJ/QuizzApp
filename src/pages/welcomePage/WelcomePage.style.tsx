@@ -1,19 +1,6 @@
 import styled from "@emotion/styled";
+import { Link } from "react-router-dom";
 
-export const Button = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 5px;
-  border-radius: 5px;
-  background-color: ${({ theme: { primary } }) => primary};
-  &:hover {
-    background-color: ${({ theme: { secondary } }) => secondary};
-  }
-  &:active {
-    background-color: ${({ theme: { primary } }) => primary};
-  }
-`;
 export const Input = styled.input`
   -webkit-appearance: none;
   margin-right: 15px;
@@ -63,5 +50,20 @@ export const Input = styled.input`
     border-radius: 50%;
     background-color: ${({ theme: { primary } }) => primary};
     cursor: ew-resize;
+  }
+`;
+
+export const StyledLink = styled(Link)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: ${({ theme: { primary } }) => primary};
+  &:hover {
+    background-color: ${({ theme: { secondary } }) => secondary};
+  }
+  &:active {
+    background-color: ${({ theme: { primary } }) => primary};
   }
 `;

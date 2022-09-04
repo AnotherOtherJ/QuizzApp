@@ -85,6 +85,9 @@ const GlobalTheme = () => {
             width: 100%;
             height: 100%;
             isolation: isolate;
+            @media screen and (max-width: 768px) {
+              align-items: end;
+            }
           }
           a {
             text-decoration: none;

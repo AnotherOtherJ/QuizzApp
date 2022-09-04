@@ -1,16 +1,20 @@
 import styled from "@emotion/styled";
 
-type StyledPageWrapperProps = {
-  flexStart?: boolean;
-};
-
 const StyledPageWrapper = styled.div`
-  width: 60%;
+  width: 90%;
   height: 70%;
   display: flex;
   flex-direction: column;
-  align-items: ${({ flexStart }: StyledPageWrapperProps) => (flexStart ? "flex-start" : "center")};
+  align-items: flex-start;
   justify-content: space-evenly;
+  flex-wrap: wrap;
+  @media screen and (max-width: 768px) {
+    align-items: center;
+    width: 100%;
+    height: calc(100% - 50px);
+    padding: 5px;
+    overflow: auto;
+  }
   img {
     height: 30px;
     aspect-ratio: 1;
