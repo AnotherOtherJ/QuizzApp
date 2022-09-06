@@ -1,6 +1,7 @@
 import navlogo from "@assets/images/navlogo.webp";
+import { memo } from "react";
 
-import StyledNav, { StyledLink } from "./Nav.style";
+import StyledNav, { StyledDiv, StyledLink } from "./Nav.style";
 
 type Props = {
   darkModeOnClick: () => void;
@@ -12,8 +13,8 @@ const Nav = ({ darkModeOnClick }: Props) => {
       <img src={navlogo} alt="logo" />
       <StyledLink to="/">Play</StyledLink>
       <StyledLink to="/about">About</StyledLink>
-      <div onClick={darkModeOnClick}>Switch Theme</div>
+      <StyledDiv onClick={darkModeOnClick}>Switch Theme</StyledDiv>
     </StyledNav>
   );
 };
-export default Nav;
+export default memo(Nav);
