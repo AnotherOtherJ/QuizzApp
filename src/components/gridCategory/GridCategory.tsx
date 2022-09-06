@@ -1,4 +1,5 @@
-import { GridElement, GridLabel } from "./GridCategory.style";
+import GridElement, { ButtonLabel as GridLabel } from "@components/button/Button.style";
+
 type Props = {
   value: number;
   name: string;
