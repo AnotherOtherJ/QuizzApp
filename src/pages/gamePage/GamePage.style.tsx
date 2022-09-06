@@ -1,24 +1,30 @@
 import styled from "@emotion/styled";
 
+export const Questions = styled.div`
+  display: flex;
+  flex-direction: column;
+  @media screen and (max-width: 768px) {
+    min-height: 100%;
+    scroll-snap-align: start;
+  }
+`;
+export const QuestionText = styled.div`
+  @media screen and (max-width: 768px) {
+    flex: 1;
+    text-align: center;
+  }
+`;
+
 export const Answers = styled.div`
   display: flex;
   gap: 4px;
   user-select: none;
+  flex-wrap: wrap;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
-export const Answer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2px;
-  border: 1px solid #fff;
-  border-radius: 4px;
-`;
-export const AnswerLabel = styled.label`
-  input {
-    display: none;
-  }
-  input:checked + div {
-    background: ${({ theme: { primary } }) => primary};
-  }
+export const Button = styled.div`
+  align-self: flex-end;
 `;

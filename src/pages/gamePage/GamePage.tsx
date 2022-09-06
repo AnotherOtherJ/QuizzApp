@@ -1,3 +1,4 @@
+import AnswerButton, { ButtonLabel as AnswerLabel } from "@components/button/Button.style";
 import PageWrapper from "@components/pageWrapper/PageWrapper";
 import { shuffle } from "lodash";
 import { useMemo, useState } from "react";
@@ -5,7 +6,7 @@ import { useMemo, useState } from "react";
 import parseText from "@/helpers/parseText";
 import useFetch from "@/hooks/useFetch";
 
-import { Answer, AnswerLabel, Answers } from "./GamePage.style";
+import { Answers, Button, Questions, QuestionText } from "./GamePage.style";
 
 type Props = {
   api: {
@@ -30,17 +31,17 @@ const GamePage = ({ api }: Props) => {
         const answers = shuffle([q.correct_answer, ...q.incorrect_answers]);
         console.log(answers);
         return (
-          <div key={index}>
-            {parseText(q.question)}
+          <Questions key={index}>
+            <QuestionText>{parseText(q.question)}</QuestionText>
             <Answers>
               {answers.map((a, i) => (
                 <AnswerLabel key={i} onClick={() => handleAnswer(a)}>
                   <input type="radio" name={index.toString()} />
-                  <Answer>{parseText(a)}</Answer>
+                  <AnswerButton>{parseText(a)}</AnswerButton>
                 </AnswerLabel>
               ))}
             </Answers>
-          </div>
+          </Questions>
         );
       }),
     [questions],
@@ -49,7 +50,7 @@ const GamePage = ({ api }: Props) => {
   return (
     <PageWrapper>
       {question_answers}
-      <div>Check</div>
+      <Button>Check</Button>
     </PageWrapper>
   );
 };
