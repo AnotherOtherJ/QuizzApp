@@ -1,6 +1,8 @@
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
 
+import Button from "@/components/button/Button.style";
+
 export const Input = styled.input`
   -webkit-appearance: none;
   margin-right: 15px;
@@ -53,17 +55,6 @@ export const Input = styled.input`
   }
 `;
 
-export const StyledLink = styled(Link)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 5px;
-  border-radius: 5px;
-  background-color: ${({ theme: { primary } }) => primary};
-  &:hover {
-    background-color: ${({ theme: { secondary } }) => secondary};
-  }
-  &:active {
-    background-color: ${({ theme: { primary } }) => primary};
-  }
-`;
+export const StyledLink = styled(Button)`
+  flex: initial;
+`.withComponent(Link);
