@@ -47,7 +47,7 @@ const WelcomePage = ({ setApi, api }: WelcomePageProps) => {
           }
         />
         <br />
-        Questions {api.questions}
+        Questions: {api.questions}
       </label>
       <GridCategories>
         {categories.map((category, i) => (
