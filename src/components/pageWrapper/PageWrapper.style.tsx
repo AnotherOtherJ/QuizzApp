@@ -1,24 +1,41 @@
 import styled from "@emotion/styled";
-
 const StyledPageWrapper = styled.div`
-  width: 90%;
-  height: 70%;
+  width: 100%;
+  height: 5000px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  outline: green solid 1px;
+  overflow: auto;
+  padding: 0 20px 10px 20px;
   @media screen and (max-width: 768px) {
-    align-items: center;
-    width: 100%;
-    height: calc(100% - 50px);
     padding: 5px;
-    overflow: auto;
+    align-items: stretch;
+    scroll-snap-type: y mandatory;
   }
   img {
     height: 30px;
     aspect-ratio: 1;
     display: inline-block;
+  }
+  /* ::-webkit-scrollbar {
+    width: 10px;
+  } */
+  scrollbar-width: thin;
+  scrollbar-color: ${({ theme: { primary, background } }) => `${primary} ${background}`};
+
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: ${({ theme: { background } }) => background};
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: ${({ theme: { primary } }) => primary};
+    border-radius: 20px;
+    :hover {
+      background-color: ${({ theme: { secondary } }) => secondary};
+    }
   }
 `;
 
