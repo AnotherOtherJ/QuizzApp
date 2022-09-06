@@ -20,7 +20,7 @@ const App = () => {
   });
   const [isDark, setIsDark] = useState(window.matchMedia("(prefers-color-scheme: dark)").matches);
   const darkModeOnClick = () => {
-    setIsDark(something => !something);
+    setIsDark(prev => !prev);
     localStorage.setItem("darkMode", isDark ? "false" : "true");
   };
   useTheme(setIsDark);
