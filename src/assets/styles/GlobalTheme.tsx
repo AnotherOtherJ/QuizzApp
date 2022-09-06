@@ -1,4 +1,5 @@
 import { css, Global, useTheme } from "@emotion/react";
+import { memo } from "react";
 
 export const colors = {
   dark: {
@@ -34,6 +35,7 @@ const GlobalTheme = () => {
           }
           * {
             margin: 0;
+            outline: red solid 1px;
           }
           html,
           body {
@@ -72,22 +74,19 @@ const GlobalTheme = () => {
         styles={css`
           body {
             background-color: ${theme.background};
-            width: 100%;
-            height: 100%;
             font-family: "Nunito", sans-serif;
             color: ${theme.font};
-            font-size: 17px;
+            font-size: 24px;
             letter-spacing: 0.5px;
           }
           #root {
-            display: grid;
-            place-items: center;
-            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            align-items: center;
             height: 100%;
             isolation: isolate;
-            @media screen and (max-width: 768px) {
-              align-items: end;
-            }
+            overflow: auto;
           }
           a {
             text-decoration: none;
@@ -99,4 +98,4 @@ const GlobalTheme = () => {
   );
 };
 
-export default GlobalTheme;
+export default memo(GlobalTheme);
