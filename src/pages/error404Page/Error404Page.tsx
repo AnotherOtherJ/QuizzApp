@@ -1,5 +1,4 @@
 import PageWrapper from "@components/pageWrapper/PageWrapper";
-
 import { memo } from "react";
 
 type Props = { something?: boolean };
