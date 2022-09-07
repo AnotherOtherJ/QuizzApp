@@ -35,7 +35,6 @@ const GlobalTheme = () => {
           }
           * {
             margin: 0;
-            outline: red solid 1px;
           }
           html,
           body {

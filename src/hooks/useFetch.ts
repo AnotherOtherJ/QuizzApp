@@ -26,7 +26,6 @@ const useFetch = (api: Api): [QuestionsProps[], boolean] => {
     const data = await response.json();
     if (data.response_code === 0) {
       setQuestions(data.results);
-      console.log(question);
     } else {
       throw new Error("no data returned");
     }

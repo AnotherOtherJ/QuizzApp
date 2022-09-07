@@ -5,7 +5,6 @@ const StyledPageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  outline: green solid 1px;
   overflow: auto;
   padding: 0 20px 10px 20px;
   @media screen and (max-width: 768px) {
@@ -18,9 +17,6 @@ const StyledPageWrapper = styled.div`
     aspect-ratio: 1;
     display: inline-block;
   }
-  /* ::-webkit-scrollbar {
-    width: 10px;
-  } */
   scrollbar-width: thin;
   scrollbar-color: ${({ theme: { primary, background } }) => `${primary} ${background}`};
 

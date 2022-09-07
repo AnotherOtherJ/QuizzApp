@@ -6,6 +6,7 @@ export const Questions = styled.div`
   @media screen and (max-width: 768px) {
     min-height: 100%;
     scroll-snap-align: start;
+    scroll-snap-stop: always;
   }
 `;
 export const QuestionText = styled.div`

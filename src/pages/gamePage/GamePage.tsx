@@ -1,7 +1,7 @@
 import AnswerButton, { ButtonLabel as AnswerLabel } from "@components/button/Button.style";
 import PageWrapper from "@components/pageWrapper/PageWrapper";
 import { shuffle } from "lodash";
-import { useMemo, useState } from "react";
+import { SyntheticEvent, useMemo, useState } from "react";
 
 import parseText from "@/helpers/parseText";
 import useFetch from "@/hooks/useFetch";
@@ -16,41 +16,57 @@ type Props = {
 };
 
 const GamePage = ({ api }: Props) => {
-  const [someState, setState] = useState<string | undefined>();
-
-  const handleAnswer = (a: string) => {
-    console.log(a);
-    setState(a);
-  };
   const [questions, error] = useFetch(api);
-  console.log(questions);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const correct_answers: string[] = [];
+  const selected_answers: string[] = new Array(api.questions);
+
+  const handleAnswer = (e: SyntheticEvent, index: number) => {
+    const element = e.target as HTMLElement;
+    const answer = element.textContent as string;
+    selected_answers.splice(index, 1, answer);
+  };
+
+  const handleCheck = () => {
+    let points = 0;
+    correct_answers.forEach((element, index) =>
+      element === selected_answers[index] ? points++ : points,
+    );
+  };
 
   const question_answers = useMemo(
     () =>
       questions.map((q, index) => {
         const answers = shuffle([q.correct_answer, ...q.incorrect_answers]);
-        console.log(answers);
+        questions ? setIsLoaded(true) : setIsLoaded(false);
+        correct_answers.push(q.correct_answer);
         return (
           <Questions key={index}>
             <QuestionText>{parseText(q.question)}</QuestionText>
             <Answers>
               {answers.map((a, i) => (
-                <AnswerLabel key={i} onClick={() => handleAnswer(a)}>
+                <AnswerLabel key={i}>
                   <input type="radio" name={index.toString()} />
-                  <AnswerButton>{parseText(a)}</AnswerButton>
+                  <AnswerButton onClick={e => handleAnswer(e, index)}>{parseText(a)}</AnswerButton>
                 </AnswerLabel>
               ))}
             </Answers>
           </Questions>
         );
       }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [questions],
   );
 
   return (
     <PageWrapper>
-      {question_answers}
-      <Button>Check</Button>
+      {isLoaded ? (
+        <>
+          {question_answers} <Button onClick={handleCheck}>Check</Button>
+        </>
+      ) : (
+        <div>Loadddding</div>
+      )}
     </PageWrapper>
   );
 };
