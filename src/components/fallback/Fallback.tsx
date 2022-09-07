@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { domAnimation, LazyMotion, m } from "framer-motion";
 import { memo } from "react";
 
-import PageWrapper from "../pageWrapper/PageWrapper";
+import StyledPageWrapper from "../pageWrapper/PageWrapper.style";
 import HourGlass from "./HourGlass";
 
 const Div = styled(m.div)`
@@ -23,7 +23,7 @@ const variants = {
 };
 const Fallback = () => {
   return (
-    <PageWrapper animate>
+    <StyledPageWrapper animate>
       <LazyMotion features={domAnimation}>
         <Div>
           <Svg animate="animate" variants={variants}>
@@ -32,7 +32,7 @@ const Fallback = () => {
           Loading...
         </Div>
       </LazyMotion>
-    </PageWrapper>
+    </StyledPageWrapper>
   );
 };
 
