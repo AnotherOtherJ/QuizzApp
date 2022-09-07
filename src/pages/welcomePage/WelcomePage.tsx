@@ -1,9 +1,10 @@
 import navlogo from "@assets/images/navlogo.webp";
 import GridCategory from "@components/gridCategory/GridCategory";
 import { GridCategories } from "@components/gridCategory/GridCategory.style";
-import PageWrapper from "@components/pageWrapper/PageWrapper";
 
-import { Input, StyledLink } from "./WelcomePage.style";
+import StyledPageWrapper from "@/components/pageWrapper/PageWrapper.style";
+
+import { Img, Input, StyledLink } from "./WelcomePage.style";
 import type WelcomePageProps from "./WelcomePage.types";
 
 const WelcomePage = ({ setApi, api }: WelcomePageProps) => {
@@ -18,21 +19,19 @@ const WelcomePage = ({ setApi, api }: WelcomePageProps) => {
     setApi({ ...api, category });
   };
 
-  const handleQuestionsNumberOnInput = (
-    questions: number,
-    target: EventTarget & HTMLInputElement,
-  ) => {
-    setApi({ ...api, questions: Math.round(questions) });
+  const handleQuestionsNumberOnInput = (target: EventTarget & HTMLInputElement) => {
     const min = +target.min;
     const max = +target.max;
     const val = +target.value;
+    setApi({ ...api, questions: Math.round(val) });
+
     target.style.backgroundSize = ((val - min) * 100) / (max - min) + "% 100%";
   };
 
   return (
-    <PageWrapper>
+    <StyledPageWrapper>
       <div>
-        Welcome on Your Quizz App <img src={navlogo} alt="mini-logo" title="" />
+        Welcome on Your Quizz App <Img src={navlogo} alt="mini-logo" title="" />
       </div>
       <div>Please choose your game parameters</div>
       <label>
@@ -43,7 +42,7 @@ const WelcomePage = ({ setApi, api }: WelcomePageProps) => {
           step={0.1}
           defaultValue={api.questions}
           onInput={(e: React.ChangeEvent<HTMLInputElement>) =>
-            handleQuestionsNumberOnInput(+e.target.value, e.target)
+            handleQuestionsNumberOnInput(e.target)
           }
         />
         <br />
@@ -60,7 +59,7 @@ const WelcomePage = ({ setApi, api }: WelcomePageProps) => {
         ))}
       </GridCategories>
       <StyledLink to="/play">Play</StyledLink>
-    </PageWrapper>
+    </StyledPageWrapper>
   );
 };
 export default WelcomePage;

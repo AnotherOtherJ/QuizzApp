@@ -9,10 +9,7 @@ export const Input = styled.input`
   width: 300px;
   height: 8px;
   border-radius: 5px;
-  background-image: linear-gradient(
-    ${({ theme: { primary } }) => primary},
-    ${({ theme: { primary } }) => primary}
-  );
+  background-image: ${({ theme: { primary } }) => `linear-gradient(${primary}, ${primary})`};
   background-color: ${({ theme: { inputBackground } }) => inputBackground};
   background-repeat: no-repeat;
   background-size: 0% 100%;
@@ -58,3 +55,9 @@ export const Input = styled.input`
 export const StyledLink = styled(Button)`
   flex: initial;
 `.withComponent(Link);
+
+export const Img = styled.img`
+  height: 30px;
+  aspect-ratio: 1;
+  display: inline-block;
+`;

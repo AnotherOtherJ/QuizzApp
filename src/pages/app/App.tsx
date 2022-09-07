@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 
 import GlobalTheme, { colors } from "@/assets/styles/GlobalTheme";
+import Fallback from "@/components/fallback/Fallback";
 import useTheme from "@/hooks/useTheme";
 
 import WelcomePage from "../welcomePage/WelcomePage";
@@ -34,7 +35,7 @@ const App = () => {
         <Route
           path="/play"
           element={
-            <Suspense fallback={<div>loading</div>}>
+            <Suspense fallback={<Fallback />}>
               <GamePage api={api} />
             </Suspense>
           }
@@ -42,7 +43,7 @@ const App = () => {
         <Route
           path="/about"
           element={
-            <Suspense>
+            <Suspense fallback={<Fallback />}>
               <AboutPage />
             </Suspense>
           }

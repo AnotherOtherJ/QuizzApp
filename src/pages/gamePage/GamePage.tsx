@@ -1,8 +1,9 @@
 import AnswerButton, { ButtonLabel as AnswerLabel } from "@components/button/Button.style";
-import PageWrapper from "@components/pageWrapper/PageWrapper";
 import { shuffle } from "lodash";
 import { SyntheticEvent, useMemo, useState } from "react";
 
+import Fallback from "@/components/fallback/Fallback";
+import StyledPageWrapper from "@/components/pageWrapper/PageWrapper.style";
 import parseText from "@/helpers/parseText";
 import useFetch from "@/hooks/useFetch";
 
@@ -59,15 +60,21 @@ const GamePage = ({ api }: Props) => {
   );
 
   return (
-    <PageWrapper>
+    <StyledPageWrapper>
       {isLoaded ? (
         <>
           {question_answers} <Button onClick={handleCheck}>Check</Button>
         </>
       ) : (
-        <div>Loadddding</div>
+        <>
+          {error ? (
+            <div>Sorry, We&apos;re experiencing issues right now. Please check later :)</div>
+          ) : (
+            <Fallback />
+          )}
+        </>
       )}
-    </PageWrapper>
+    </StyledPageWrapper>
   );
 };
 export default GamePage;
