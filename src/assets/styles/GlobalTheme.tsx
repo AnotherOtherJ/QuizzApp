@@ -12,9 +12,9 @@ export const colors = {
     font: "#ecf0f1",
   },
   light: {
-    primary: "#DDD",
+    primary: "#9575cd",
     secondary: "#7953d2",
-    background: "#FFF",
+    background: "#fafafa",
     inputBackground: "rgba(69, 39, 160, 0.38)",
     inputBoxShadow: "rgba(69, 39, 160, 0.2)",
     inputBoxShadowActive: "rgba(69, 39, 160, 0.4)",
