@@ -1,22 +1,23 @@
 import styled from "@emotion/styled";
-const StyledPageWrapper = styled.div`
+
+type WrapperProps = {
+  animate?: boolean;
+};
+
+const StyledPageWrapper = styled.div<WrapperProps>`
   width: 100%;
-  height: 5000px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  overflow: auto;
+  overflow: ${({ animate }) => (animate ? "hidden" : "auto")};
   padding: 0 20px 10px 20px;
   @media screen and (max-width: 768px) {
     padding: 5px;
     align-items: stretch;
     scroll-snap-type: y mandatory;
   }
-  img {
-    height: 30px;
-    aspect-ratio: 1;
-    display: inline-block;
-  }
+
   scrollbar-width: thin;
   scrollbar-color: ${({ theme: { primary, background } }) => `${primary} ${background}`};
 
