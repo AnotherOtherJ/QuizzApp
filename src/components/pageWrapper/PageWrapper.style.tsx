@@ -6,16 +6,19 @@ type WrapperProps = {
 
 const StyledPageWrapper = styled.div<WrapperProps>`
   width: 100%;
+  max-width: 1500px;
   height: 100%;
   display: flex;
+  font-size: 40px;
   flex-direction: column;
   justify-content: space-between;
+  text-align: center;
   overflow: ${({ animate }) => (animate ? "hidden" : "auto")};
   padding: 0 20px 10px 20px;
+  scroll-snap-type: y mandatory;
   @media screen and (max-width: 768px) {
-    padding: 5px;
+    font-size: 24px;
     align-items: stretch;
-    scroll-snap-type: y mandatory;
   }
 
   scrollbar-width: thin;

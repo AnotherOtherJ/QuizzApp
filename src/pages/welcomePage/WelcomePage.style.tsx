@@ -1,12 +1,17 @@
 import styled from "@emotion/styled";
-import { Link } from "react-router-dom";
 
-import Button from "@/components/button/Button.style";
+import { ButtonLink } from "@/components/button/Button.style";
 
 export const Input = styled.input`
   -webkit-appearance: none;
-  margin-right: 15px;
-  width: 300px;
+  margin-bottom: 20px;
+  width: 500px;
+  @media screen and (max-width: 768px) {
+    width: 300px;
+  }
+  @media screen and (max-width: 310px) {
+    width: 250px;
+  }
   height: 8px;
   border-radius: 5px;
   background-image: ${({ theme: { primary } }) => `linear-gradient(${primary}, ${primary})`};
@@ -52,9 +57,9 @@ export const Input = styled.input`
   }
 `;
 
-export const StyledLink = styled(Button)`
+export const StyledLink = styled(ButtonLink)`
   flex: initial;
-`.withComponent(Link);
+`;
 
 export const Img = styled.img`
   height: 30px;
