@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Link } from "react-router-dom";
 
 const Button = styled.div`
   display: flex;
@@ -14,7 +15,8 @@ const Button = styled.div`
   &:active {
     background-color: ${({ theme: { primary } }) => primary};
   }
-  flex: 1 1 auto;
+  flex: 1 1 0;
+  text-align: center;
 `;
 
 export const ButtonLabel = styled.label`
@@ -24,9 +26,11 @@ export const ButtonLabel = styled.label`
   input:checked + div {
     background-color: ${({ theme: { secondary } }) => secondary};
   }
-  flex: 1 1 auto;
+  flex: 1 1 0;
   display: flex;
   align-items: stretch;
 `;
+
+export const ButtonLink = Button.withComponent(Link);
 
 export default Button;
