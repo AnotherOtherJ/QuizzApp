@@ -1,3 +1,4 @@
+import Button from "@components/button/Button.style";
 import styled from "@emotion/styled";
 
 export const Questions = styled.div`
@@ -26,6 +27,10 @@ export const Answers = styled.div`
   }
 `;
 
-export const Button = styled.div`
-  align-self: flex-end;
+export const Results = Questions;
+
+export const ResultText = QuestionText;
+
+export const ResultButton = styled(Button)`
+  flex: initial;
 `;

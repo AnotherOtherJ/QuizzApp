@@ -8,7 +8,7 @@ import StyledPageWrapper from "@/components/pageWrapper/PageWrapper.style";
 import parseText from "@/helpers/parseText";
 import useFetch from "@/hooks/useFetch";
 
-import { Answers, Button, Questions, QuestionText } from "./GamePage.style";
+import { Answers, Questions, QuestionText, ResultButton, Results } from "./GamePage.style";
 
 type Props = {
   api: {
@@ -74,7 +74,11 @@ const GamePage = ({ api }: Props) => {
     <StyledPageWrapper ref={wrapper}>
       {isLoaded ? (
         <>
-          {question_answers} <Button onClick={handleCheck}>Check</Button>
+          {question_answers}
+          <Results>
+            Congratulations! You completed the Quizz! Check your answers below
+            <ResultButton onClick={handleCheck}>Check</ResultButton>
+          </Results>
         </>
       ) : (
         <Fallback />
