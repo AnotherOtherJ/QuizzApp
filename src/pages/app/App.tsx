@@ -10,7 +10,7 @@ import useTheme from "@/hooks/useTheme";
 
 import WelcomePage from "../welcomePage/WelcomePage";
 
-const Error404Page = lazy(() => import("../error404Page/Error404Page"));
+const ErrorMessage = lazy(() => import("@/components/errorMessage/ErrorMessage"));
 const GamePage = lazy(() => import("../gamePage/GamePage"));
 const AboutPage = lazy(() => import("../aboutPage/AboutPage"));
 
@@ -48,7 +48,12 @@ const App = () => {
             </Suspense>
           }
         />
-        <Route path="*" element={<Error404Page />} />
+        <Route
+          path="*"
+          element={
+            <ErrorMessage errorContent="Sorry, the page are you looking for does not exist" />
+          }
+        />
       </Routes>
     </ThemeProvider>
   );
