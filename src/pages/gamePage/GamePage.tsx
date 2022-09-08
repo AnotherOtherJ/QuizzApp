@@ -1,7 +1,8 @@
 import AnswerButton, { ButtonLabel as AnswerLabel } from "@components/button/Button.style";
 import { shuffle } from "lodash";
-import { SyntheticEvent, useMemo, useState } from "react";
+import { SyntheticEvent, useMemo, useRef, useState } from "react";
 
+import ErrorMessage from "@/components/errorMessage/ErrorMessage";
 import Fallback from "@/components/fallback/Fallback";
 import StyledPageWrapper from "@/components/pageWrapper/PageWrapper.style";
 import parseText from "@/helpers/parseText";
@@ -21,11 +22,15 @@ const GamePage = ({ api }: Props) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const correct_answers: string[] = [];
   const selected_answers: string[] = new Array(api.questions);
-
+  const wrapper = useRef<HTMLDivElement>(null);
   const handleAnswer = (e: SyntheticEvent, index: number) => {
     const element = e.target as HTMLElement;
     const answer = element.textContent as string;
     selected_answers.splice(index, 1, answer);
+    wrapper.current?.scrollBy({
+      top: 5,
+      behavior: "smooth",
+    });
   };
 
   const handleCheck = () => {
@@ -59,20 +64,20 @@ const GamePage = ({ api }: Props) => {
     [questions],
   );
 
+  if (error) {
+    return (
+      <ErrorMessage errorContent="Sorry, We're experiencing issues right now. Please check later :)" />
+    );
+  }
+
   return (
-    <StyledPageWrapper>
+    <StyledPageWrapper ref={wrapper}>
       {isLoaded ? (
         <>
           {question_answers} <Button onClick={handleCheck}>Check</Button>
         </>
       ) : (
-        <>
-          {error ? (
-            <div>Sorry, We&apos;re experiencing issues right now. Please check later :)</div>
-          ) : (
-            <Fallback />
-          )}
-        </>
+        <Fallback />
       )}
     </StyledPageWrapper>
   );

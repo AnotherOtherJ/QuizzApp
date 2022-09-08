@@ -35,6 +35,7 @@ const WelcomePage = ({ setApi, api }: WelcomePageProps) => {
       </div>
       <div>Please choose your game parameters</div>
       <label>
+        <p>Questions: {api.questions}</p>
         <Input
           type="range"
           min={5}
@@ -45,8 +46,6 @@ const WelcomePage = ({ setApi, api }: WelcomePageProps) => {
             handleQuestionsNumberOnInput(e.target)
           }
         />
-        <br />
-        Questions: {api.questions}
       </label>
       <GridCategories>
         {categories.map((category, i) => (
