@@ -1,5 +1,9 @@
 import { useEffect } from "react";
 
+/**
+ * Hook which will check for localStorage sett
+ * If there isn't it'll set and monitor prefers-color-scheme
+ */
 const useTheme = (setIsDark: React.Dispatch<React.SetStateAction<boolean>>) => {
   useEffect(() => {
     const darkMode = window.localStorage.getItem("darkMode");
