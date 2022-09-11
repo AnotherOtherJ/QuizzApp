@@ -3,7 +3,9 @@ import styled from "@emotion/styled";
 type WrapperProps = {
   animate?: boolean;
 };
-
+/** Styled Component
+ * @param {boolean} [animate] - will change overflow to hidden if true
+ */
 const StyledPageWrapper = styled.div<WrapperProps>`
   width: 100%;
   max-width: 1500px;
