@@ -1,9 +1,6 @@
 import { useEffect, useState } from "react";
 
-type Api = {
-  category: number;
-  questions: number;
-};
+import type { Api } from "@/types";
 
 type QuestionsProps = {
   category: string;
@@ -13,11 +10,12 @@ type QuestionsProps = {
   correct_answer: string;
   incorrect_answers: [string];
 };
+
 /**
  * Hook which will pull data according to arguments
  * and return questions Object and error if is any.
  */
-const useFetch = (api: Api): [QuestionsProps[], boolean] => {
+const useFetch = ({ api }: Api): [QuestionsProps[], boolean] => {
   const [question, setQuestions] = useState<QuestionsProps[]>([]);
   const [error, setError] = useState(false);
 
