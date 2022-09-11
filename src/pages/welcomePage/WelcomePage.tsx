@@ -1,10 +1,9 @@
-import navlogo from "@assets/images/navlogo.webp";
 import GridCategory from "@components/gridCategory/GridCategory";
 import { GridCategories } from "@components/gridCategory/GridCategory.style";
 
 import StyledPageWrapper from "@/components/pageWrapper/PageWrapper.style";
 
-import { Img, Input, StyledLink } from "./WelcomePage.style";
+import { Input, StyledLink } from "./WelcomePage.style";
 import type WelcomePageProps from "./WelcomePage.types";
 
 const WelcomePage = ({ setApi, api }: WelcomePageProps) => {
@@ -31,7 +30,7 @@ const WelcomePage = ({ setApi, api }: WelcomePageProps) => {
   return (
     <StyledPageWrapper>
       <div>
-        Welcome on Your Quizz App <Img src={navlogo} alt="mini-logo" title="" />
+        <h1>Welcome on Your Quizz App</h1>
       </div>
       <div>Please choose your game parameters</div>
       <label>
