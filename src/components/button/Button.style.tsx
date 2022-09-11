@@ -9,6 +9,7 @@ const Button = styled.div`
   border-radius: 5px;
   background-color: ${({ theme: { primary } }) => primary};
   transition: background-color ease-out 300ms;
+  user-select: none;
   &:hover {
     background-color: ${({ theme: { secondary } }) => secondary};
   }
