@@ -1,6 +1,6 @@
 import Nav from "@components/nav/Nav";
 import { ThemeProvider } from "@emotion/react";
-import { lazy, Suspense } from "react";
+import loadable from "@loadable/component";
 import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 
@@ -10,12 +10,18 @@ import useTheme from "@/hooks/useTheme";
 
 import WelcomePage from "../welcomePage/WelcomePage";
 
-const ErrorMessage = lazy(() => import("@/components/errorMessage/ErrorMessage"));
-const GamePage = lazy(() => import("../gamePage/GamePage"));
-const AboutPage = lazy(() => import("../aboutPage/AboutPage"));
+const ErrorMessage = loadable(() => import("@/components/errorMessage/ErrorMessage"), {
+  fallback: <Fallback />,
+});
+const GamePage = loadable(() => import("../gamePage/GamePage"), {
+  fallback: <Fallback />,
+});
+const AboutPage = loadable(() => import("../aboutPage/AboutPage"), {
+  fallback: <Fallback />,
+});
 
 const App = () => {
-  const [api, setApi] = useState<{ category: number; questions: number }>({
+  const [api, setApi] = useState({
     category: 27,
     questions: 5,
   });
@@ -32,22 +38,8 @@ const App = () => {
       <Nav darkModeOnClick={darkModeOnClick} />
       <Routes>
         <Route path="/" element={<WelcomePage setApi={setApi} api={api} />} />
-        <Route
-          path="/play"
-          element={
-            <Suspense fallback={<Fallback />}>
-              <GamePage api={api} />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/about"
-          element={
-            <Suspense fallback={<Fallback />}>
-              <AboutPage />
-            </Suspense>
-          }
-        />
+        <Route path="/play" element={<GamePage api={api} />} />
+        <Route path="/about" element={<AboutPage />} />
         <Route
           path="*"
           element={
