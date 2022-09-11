@@ -1,7 +1,7 @@
 import { css, Global, useTheme } from "@emotion/react";
 import { memo } from "react";
 
-export const colors = {
+export const colors: Record<"dark" | "light", Record<string, string>> = {
   dark: {
     primary: "#4527a0",
     secondary: "#7953d2",
